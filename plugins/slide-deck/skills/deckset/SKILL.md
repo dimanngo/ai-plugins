@@ -22,28 +22,32 @@ Deckset is not Reveal.js, Marp, PowerPoint, or HTML. Do not use syntax from thos
 ## Precedence Rules
 
 - Output format is Markdown-only unless the user explicitly asks you to write a file or include explanation.
-- Aspect ratio is not assumed silently when the user has not specified it. Ask the user which ratio they want and suggest:
-  - `16:9` recommended/default
-  - `1:1`
-  - another custom ratio
 - Presentation style is minimalist Apple-style storytelling with one idea per slide, very few words, and visuals preferred over dense text.
 
 ## Mandatory Preflight
 
 Before drafting slides:
 
-1. Stop and analyze the user's goal, source material, audience, and intended setting.
-2. Query Deckset documentation before drafting:
+1. **STOP. Use the AskUserQuestion tool to collect all three required inputs in a single call:**
+
+   - **Presentation size** — single-select, options: `16:9` (recommended/default), `4:3`, `1:1`, `Other (specify)`.
+   - **Logo path** — text input asking for the path to the logo file (e.g. `assets/logo.png`). Accept `none` or blank to skip the logo.
+   - **Presentation title** — suggest 3–5 concrete title options derived from the source material, plus an `Other (specify)` option. The user picks or types their own.
+
+   Do not proceed to documentation lookup or drafting until the user has answered all three questions.
+
+2. Stop and analyze the user's goal, source material, audience, and intended setting.
+3. Query Deckset documentation before drafting:
    - Prefer Context7 MCP library `/websites/deckset_english_lproj`.
    - Ask specifically for Deckset Markdown syntax, configuration commands, slide directives, image modifiers, presenter notes, and Mermaid support.
    - If Context7 MCP is unavailable, read Deckset LLM documentation from `https://context7.com/websites/deckset_english_lproj/llms.txt`.
-3. Read the local syntax samples in `references/` when available:
+4. Read the local syntax samples in `references/` when available:
    - `deckset-basics.md`
    - `deckset-images.md`
    - `deckset-big-text.md`
    - `deckset-tables.md`
-4. Treat official Deckset documentation as source of truth and local samples as syntax/style references.
-5. If the source is an article URL and network access is unavailable, ask the user for the article text or a local copy.
+5. Treat official Deckset documentation as source of truth and local samples as syntax/style references.
+6. If the source is an article URL and network access is unavailable, ask the user for the article text or a local copy.
 
 ## Presentation Style
 
@@ -53,7 +57,7 @@ Before drafting slides:
 - Keep slides suitable for executive briefings, architecture reviews, or tech talks.
 - Default audience, unless the user says otherwise: Solution Architects, Enterprise Architects, Developers, and Engineering Managers.
 - Default tone: professional, approachable, precise, thorough, and accessible.
-- Build a clear story arc: setup, problem, insight, solution, proof, implications, takeaway.
+- Build a clear story arc. The "setup/problem" framing beat is optional — omit it when the source material goes straight to content or when it would add no new information.
 - Keep the deck visually clean: whitespace, high contrast, large readable text.
 - Avoid clutter, dense bullet lists, long sentences, and unnecessary detail.
 - Put extra detail into appendix slides when needed.
@@ -66,7 +70,10 @@ Use this structure unless the user's material calls for a better story:
 2. Agenda or overview slide with the main flow.
 3. Content slides broken into small story beats.
 4. Summary or key takeaways.
-5. Closing slide with a call to action, Q&A prompt, or memorable final point.
+5. Closing slide — choose one pattern:
+   - **Engagement close:** question or call to action for audience response
+   - **Branded close:** `[.hide-footer]` + `[.slidenumbers: false]` + `![inline 100%](logo.png)` + website or contact line
+   - Do not generate an actionable "what to do next" slide unless the source material contains explicit recommendations.
 
 ## Deckset Syntax Primer
 
@@ -77,15 +84,31 @@ Use this notation unless official Deckset docs say otherwise:
   - `#` large title
   - `##` regular heading
   - `###` smaller heading
+- Add `[fit]` after the `!` to scale text to fill available slide width. Use it by default on slide titles and section headers:
+  - `# [fit] Your Title`
+  - `## [fit] Section Header`
 - Use global configuration commands at the top of the file, for example:
   - `theme: Poster, 1`
   - `autoscale: true`
   - `build-lists: true`
   - `slide-transition: fade(0.3)`
-- Use per-slide commands in square brackets, for example:
+  - `footer: "Presentation Title" <br> ![inline 50%](logo.png)` — footer text with optional inline logo
+  - `footer-style: line-height(1)` — adjust footer line height when mixing text and image
+- Use per-slide commands in square brackets **inside the slide block** (after `---`, before the slide content). Never place them before the first `---`:
   - `[.hide-footer]`
   - `[.slidenumbers: false]`
   - `[.build-lists: false]`
+- Use `[.column]` to split a slide into multiple columns. Each `[.column]` starts a new column:
+  ```
+  [.column]
+  - Item 1
+  - Item 2
+
+  [.column]
+  - Item 3
+  - Item 4
+  ```
+- Use `[.use-source-list-numbering]` on a column to continue a numbered list from the previous column (avoids restarting at 1)
 - Use `^` paragraphs for presenter notes.
 - Use Deckset image modifiers:
   - `![](image.jpg)` background image
