@@ -1,0 +1,40 @@
+{
+  "name": "slide-deck",
+  "version": "0.1.0",
+  "description": "Deckset-focused presentation skills for generating concise Markdown slide decks.",
+  "author": {
+    "name": "Dmytro Golodiuk"
+  },
+  "homepage": "https://github.com/dimanngo/ai-plugins",
+  "repository": "https://github.com/dimanngo/ai-plugins",
+  "license": "MIT",
+  "keywords": [
+    "deckset",
+    "presentation",
+    "slides",
+    "markdown"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "Slide Deck",
+    "shortDescription": "Create Deckset-compatible Markdown presentations.",
+    "longDescription": "Generate minimalist, presentation-ready Markdown decks using Deckset syntax, image layout guidance, and local syntax samples.",
+    "developerName": "Dmytro Golodiuk",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Presentation"
+    ],
+    "websiteURL": "https://github.com/dimanngo/ai-plugins",
+    "privacyPolicyURL": "https://github.com/dimanngo/ai-plugins",
+    "termsOfServiceURL": "https://github.com/dimanngo/ai-plugins",
+    "defaultPrompt": [
+      "Create a Deckset presentation from this article: <url>",
+      "Draft a minimalist executive briefing deck about <topic>.",
+      "Turn these notes into a Deckset Markdown slide deck."
+    ],
+    "brandColor": "#0F766E"
+  }
+}

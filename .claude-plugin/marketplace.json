@@ -1,0 +1,18 @@
+{
+  "name": "dimanngo-ai-plugins",
+  "description": "AI agent plugins by dimanngo.",
+  "owner": {
+    "name": "Dmytro Golodiuk"
+  },
+  "plugins": [
+    {
+      "name": "slide-deck",
+      "source": "./plugins/slide-deck",
+      "description": "Deckset-focused presentation skills for generating concise Markdown slide decks.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Dmytro Golodiuk"
+      }
+    }
+  ]
+}

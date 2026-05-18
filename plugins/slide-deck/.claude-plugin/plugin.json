@@ -1,0 +1,11 @@
+{
+  "name": "slide-deck",
+  "description": "Deckset-focused presentation skills for generating concise Markdown slide decks.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Dmytro Golodiuk"
+  },
+  "homepage": "https://github.com/dimanngo/ai-plugins",
+  "repository": "https://github.com/dimanngo/ai-plugins",
+  "license": "MIT"
+}

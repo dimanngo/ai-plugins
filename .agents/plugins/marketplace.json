@@ -1,0 +1,20 @@
+{
+  "name": "dimanngo-ai-plugins",
+  "interface": {
+    "displayName": "dimanngo/ai-plugins"
+  },
+  "plugins": [
+    {
+      "name": "slide-deck",
+      "source": {
+        "source": "local",
+        "path": "./plugins/slide-deck"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
