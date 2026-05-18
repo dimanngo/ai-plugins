@@ -1,0 +1,41 @@
+{
+  "name": "mova",
+  "version": "0.1.0",
+  "description": "Ukrainian language skills for content adaptation, copywriting review, and localization of digital product copy.",
+  "author": {
+    "name": "Dmytro Golodiuk"
+  },
+  "homepage": "https://github.com/dimanngo/ai-plugins",
+  "repository": "https://github.com/dimanngo/ai-plugins",
+  "license": "MIT",
+  "keywords": [
+    "ukrainian",
+    "localization",
+    "content",
+    "copywriting",
+    "translation-review"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "Mova — Ukrainian Language",
+    "shortDescription": "Adapt and review Ukrainian website copy against English source.",
+    "longDescription": "Review and rewrite existing Ukrainian digital copy so it reads like native Ukrainian rather than a literal translation. Preserves file structure, YAML keys, and commercial intent while improving fluency.",
+    "developerName": "Dmytro Golodiuk",
+    "category": "Writing",
+    "capabilities": [
+      "Write",
+      "Review"
+    ],
+    "websiteURL": "https://github.com/dimanngo/ai-plugins",
+    "privacyPolicyURL": "https://github.com/dimanngo/ai-plugins",
+    "termsOfServiceURL": "https://github.com/dimanngo/ai-plugins",
+    "defaultPrompt": [
+      "Use $mova:content-adaptation to adapt the Ukrainian version of this website text from the English source.",
+      "Review the Ukrainian copy in <file> against the English source and flag non-idiomatic wording.",
+      "Rewrite the Ukrainian in <file> so it reads like native Ukrainian — use the English version as the meaning reference."
+    ],
+    "brandColor": "#0057B7"
+  }
+}

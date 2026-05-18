@@ -13,6 +13,15 @@
       "author": {
         "name": "Dmytro Golodiuk"
       }
+    },
+    {
+      "name": "mova",
+      "source": "./plugins/mova",
+      "description": "Ukrainian language skills for content adaptation, copywriting review, and localization of digital product copy.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Dmytro Golodiuk"
+      }
     }
   ]
 }
